@@ -1,13 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageId>Feliz.ViewEngine</PackageId>
-    <Author>Dag Brattli</Author>
-    <Company>Brattli Labs</Company>
-    <Copyright>Brattli Labs</Copyright>
+    <TargetFramework>net6.0</TargetFramework>
+    <PackageId>Feliz.ViewEngine.Buffer</PackageId>
+    <Version>0.26.0</Version>
+    <Authors>Kentaro Inomata, Dag Brattli</Authors>
+    <Company></Company>
+    <Copyright></Copyright>
+    <Description>Fork from Feliz.ViewEngine</Description>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <RepositoryUrl>https://github.com/dbrattli/Feliz.ViewEngine</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/matarillo/Feliz.ViewEngine</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/matarillo/Feliz.ViewEngine</RepositoryUrl>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
   <ItemGroup>
@@ -27,6 +31,7 @@
     <None Include="../LICENSE" Pack="true" Visible="false" PackagePath="" />
     <None Include="../LICENSE.Apache-2.0" Pack="true" Visible="false" PackagePath="" />
     <None Include="../LICENSE.MIT" Pack="true" Visible="false" PackagePath="" />
+    <None Include="../README.md" Pack="true" PackagePath=""/>
   </ItemGroup>
   <ItemGroup>
     <Content Include="*.fsproj; *.fs; *.js;" PackagePath="fable\" />

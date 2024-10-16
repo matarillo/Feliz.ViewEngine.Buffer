@@ -1,13 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFramework>net6.0</TargetFramework>
     <PackageId>Feliz.Bulma.ViewEngine</PackageId>
-    <Author>Dag Brattli</Author>
-    <Company>Brattli Labs</Company>
-    <Copyright>Roman Provazník</Copyright>
+    <Version>0.26.0</Version>
+    <Authors>Kentaro Inomata, Dag Brattli</Authors>
+    <Company></Company>
+    <Copyright></Copyright>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
-    <RepositoryUrl>https://github.com/dbrattli/Feliz.ViewEngine</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/matarillo/Feliz.ViewEngine</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <RepositoryUrl>https://github.com/matarillo/Feliz.ViewEngine</RepositoryUrl>
     <GenerateDocumentationFile>true</GenerateDocumentationFile>
   </PropertyGroup>
   <ItemGroup>
@@ -19,9 +22,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="LICENSE" Pack="true" Visible="false" PackagePath="" />
+    <None Include="../README.md" Pack="true" PackagePath=""/>
   </ItemGroup>
   <ItemGroup>
     <Content Include="*.fsproj; *.fs; *.js;" PackagePath="fable\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\src\Feliz.ViewEngine.fsproj" />
   </ItemGroup>
   <Import Project=".paket\Paket.Restore.targets" />
 </Project>

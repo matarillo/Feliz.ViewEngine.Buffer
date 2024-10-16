@@ -6,3 +6,6 @@ examples/giraffe/obj
 bin
 obj
 .vs
+*.suo
+*.user
+.idea/
