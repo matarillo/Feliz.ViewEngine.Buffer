@@ -9,13 +9,13 @@ Feliz.ViewEngine.Buffer is available as a [NuGet package via GitHub Packages](ht
 First,
 
 ```sh
-dotnet nuget add source https://nuget.pkg.github.com/matarillo/index.json -n github.com/matarillo -u YOUR_GITHUB_ACCOUNT -p YOUR_GITHUB_PRIVATE_ACCESS_TOKEN
+dotnet nuget add source https://nuget.pkg.github.com/matarillo/index.json -n ANY_NAME_YOU_LIKE -u YOUR_GITHUB_ACCOUNT -p YOUR_GITHUB_PRIVATE_ACCESS_TOKEN
 ```
 
 Then,
 
 ```sh
-dotnet add package Feliz.ViewEngine.Buffer --source github.com/matarillo
+dotnet add package Feliz.ViewEngine.Buffer --version 0.26.0
 ```
 
 ## Getting started
