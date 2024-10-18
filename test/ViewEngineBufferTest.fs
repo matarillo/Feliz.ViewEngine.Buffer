@@ -5,14 +5,14 @@ open Swensen.Unquote
 open Xunit
 
 type Writer = System.Buffers.ArrayBufferWriter<byte>
-let inline arrayBufferWwiter () = Writer ()
+let inline arrayBufferWriter () = Writer ()
 let inline getString (writer: Writer) = System.Text.Encoding.UTF8.GetString writer.WrittenSpan
 
 [<Fact>]
 let ``Simple text element is Ok``() =
     // Arrange
-    let writer = arrayBufferWwiter ()
-    let render = Feliz.ViewEngine.Renderer writer
+    let writer = arrayBufferWriter ()
+    let render = Renderer writer
 
     // Act
     let bytes =
@@ -28,7 +28,7 @@ let ``Simple text element is Ok``() =
 [<Fact>]
 let ``Simple text element is escaped Ok``() =
     // Arrange
-    let writer = arrayBufferWwiter ()
+    let writer = arrayBufferWriter ()
     let render = Renderer writer
 
     // Act
@@ -45,7 +45,7 @@ let ``Simple text element is escaped Ok``() =
 [<Fact>]
 let ``p element with text is Ok``() =
     // Arrange
-    let writer = arrayBufferWwiter ()
+    let writer = arrayBufferWriter ()
     let render = Renderer writer
 
     // Act
@@ -62,7 +62,7 @@ let ``p element with text is Ok``() =
 [<Fact>]
 let ``p element with text is escaped Ok``() =
     // Arrange
-    let writer = arrayBufferWwiter ()
+    let writer = arrayBufferWriter ()
     let render = Renderer writer
 
     // Act
@@ -79,7 +79,7 @@ let ``p element with text is escaped Ok``() =
 [<Fact>]
 let ``p element with text property is Ok``() =
     // Arrange
-    let writer = arrayBufferWwiter ()
+    let writer = arrayBufferWriter ()
     let render = Renderer writer
 
     // Act
@@ -98,7 +98,7 @@ let ``p element with text property is Ok``() =
 [<Fact>]
 let ``p element with onchange handler is Ok``() =
     // Arrange
-    let writer = arrayBufferWwiter ()
+    let writer = arrayBufferWriter ()
     let render = Renderer writer
 
     // Act
@@ -118,7 +118,7 @@ let ``p element with onchange handler is Ok``() =
 [<Fact>]
 let ``p element with text property is escaped Ok``() =
     // Arrange
-    let writer = arrayBufferWwiter ()
+    let writer = arrayBufferWriter ()
     let render = Renderer writer
 
     // Act
@@ -137,7 +137,7 @@ let ``p element with text property is escaped Ok``() =
 [<Fact>]
 let ``p element with text element is Ok``() =
     // Arrange
-    let writer = arrayBufferWwiter ()
+    let writer = arrayBufferWriter ()
     let render = Renderer writer
 
     // Act
@@ -156,7 +156,7 @@ let ``p element with text element is Ok``() =
 [<Fact>]
 let ``p element with text element is escaped Ok``() =
     // Arrange
-    let writer = arrayBufferWwiter ()
+    let writer = arrayBufferWriter ()
     let render = Renderer writer
 
     // Act
@@ -175,7 +175,7 @@ let ``p element with text element is escaped Ok``() =
 [<Fact>]
 let ``Closed element Ok``() =
     // Arrange
-    let writer = arrayBufferWwiter ()
+    let writer = arrayBufferWriter ()
     let render = Renderer writer
 
     // Act
@@ -194,7 +194,7 @@ let ``Closed element Ok``() =
 [<Fact>]
 let ``p element with text element and class property is Ok``() =
     // Arrange
-    let writer = arrayBufferWwiter ()
+    let writer = arrayBufferWriter ()
     let render = Renderer writer
 
     // Act
@@ -216,7 +216,7 @@ let ``p element with text element and class property is Ok``() =
 [<Fact>]
 let ``p element with text element and classes property is Ok``() =
     // Arrange
-    let writer = arrayBufferWwiter ()
+    let writer = arrayBufferWriter ()
     let render = Renderer writer
 
     // Act
@@ -238,7 +238,7 @@ let ``p element with text element and classes property is Ok``() =
 [<Fact>]
 let ``h1 element with text and style property is Ok``() =
     // Arrange
-    let writer = arrayBufferWwiter ()
+    let writer = arrayBufferWriter ()
     let render = Renderer writer
 
     // Act
@@ -258,7 +258,7 @@ let ``h1 element with text and style property is Ok``() =
 [<Fact>]
 let ``The order of properties for an element is preserved``() =
     // Arrange
-    let writer = arrayBufferWwiter ()
+    let writer = arrayBufferWriter ()
     let render = Renderer writer
 
     // Act
@@ -279,7 +279,7 @@ let ``The order of properties for an element is preserved``() =
 [<Fact>]
 let ``h1 element with text and style property with css unit is Ok``() =
     // Arrange
-    let writer = arrayBufferWwiter ()
+    let writer = arrayBufferWriter ()
     let render = Renderer writer
 
     // Act
@@ -299,7 +299,7 @@ let ``h1 element with text and style property with css unit is Ok``() =
 [<Fact>]
 let ``Void tag in XML should be self closing tag`` () =
     // Arrange
-    let writer = arrayBufferWwiter ()
+    let writer = arrayBufferWriter ()
     let render = Renderer writer
 
     // Act
@@ -315,7 +315,7 @@ let ``Void tag in XML should be self closing tag`` () =
 [<Fact>]
 let ``Void tag in HTML should be unary tag`` () =
     // Arrange
-    let writer = arrayBufferWwiter ()
+    let writer = arrayBufferWriter ()
     let render = Renderer writer
 
     // Act
@@ -331,7 +331,7 @@ let ``Void tag in HTML should be unary tag`` () =
 [<Fact>]
 let ``None tag in HTML should render nothing`` () =
     // Arrange
-    let writer = arrayBufferWwiter ()
+    let writer = arrayBufferWriter ()
     let render = Renderer writer
 
     // Act
@@ -347,7 +347,7 @@ let ``None tag in HTML should render nothing`` () =
 [<Fact>]
 let ``Nested content should render correctly`` () =
     // Arrange
-    let writer = arrayBufferWwiter ()
+    let writer = arrayBufferWriter ()
     let render = Renderer writer
     let nested =
         Html.div [
@@ -374,7 +374,7 @@ let ``Nested content should render correctly`` () =
 [<Fact>]
 let ``Fragment works correctly`` () =
     // Arrange
-    let writer = arrayBufferWwiter ()
+    let writer = arrayBufferWriter ()
     let render = Renderer writer
     let withFragment =
         Html.div [

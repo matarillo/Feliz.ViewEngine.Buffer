@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <PackageId>Feliz.ViewEngine.Buffer</PackageId>
-    <Version>0.26.0</Version>
+    <Version>0.27.0</Version>
     <Authors>Kentaro Inomata, Dag Brattli</Authors>
     <Company></Company>
     <Copyright></Copyright>

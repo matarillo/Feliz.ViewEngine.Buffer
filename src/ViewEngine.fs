@@ -146,7 +146,7 @@ type Render =
 module ViewWriter =
     type BufferWriter = IBufferWriter<byte>
 
-    type State = BufferWriter * int64
+    type State = ValueTuple<BufferWriter, int64>
 
     let utf8 = Encoding.UTF8
     
@@ -161,9 +161,9 @@ module ViewWriter =
 
     let escape str = String.collect getEscapeSequence str
 
-    let inline private (+=) (writer: BufferWriter, bytes: int64) (text : string) =
+    let inline private (+=) struct (writer: BufferWriter, bytes: int64) (text : string) =
         let written = utf8.GetBytes(text, writer)
-        (writer, bytes + written)
+        struct (writer, bytes + written)
 
     let inline private selfClosingBracket (isHtml : bool) =
         if isHtml then ">" else " />"
@@ -222,30 +222,30 @@ module ViewWriter =
 type Renderer (writer: IBufferWriter<byte>) =
     /// <summary>Write XML view</summary>
     member _.xmlView (node: ReactElement) : int64 =
-        let _, bytes = ViewWriter.writeXmlNode (writer, 0L) node
+        let struct (_, bytes) = ViewWriter.writeXmlNode struct (writer, 0L) node
         bytes
 
     /// <summary>Write XML view</summary>
     member _.xmlView (nodes: ReactElement list) : int64 =
-        let _, bytes = ViewWriter.writeXmlNodes (writer, 0L) nodes
+        let struct (_, bytes) = ViewWriter.writeXmlNodes struct (writer, 0L) nodes
         bytes
 
     /// <summary>Write XML document view with &lt;?xml version="1.0" encoding="utf-8"?&gt;</summary>
     member _.xmlDocument (document: ReactElement) : int64 =
-        let _, bytes = ViewWriter.writeXmlDocument (writer, 0L) document
+        let struct (_, bytes) = ViewWriter.writeXmlDocument struct (writer, 0L) document
         bytes
 
     /// <summary>Write HTML view</summary>
     member _.htmlView (node: ReactElement) : int64 =
-        let _, bytes = ViewWriter.writeHtmlNode (writer, 0L) node
+        let struct (_, bytes) = ViewWriter.writeHtmlNode struct (writer, 0L) node
         bytes
 
     /// <summary>Write HTML view</summary>
     member _.htmlView (nodes: ReactElement list) : int64 =
-        let _, bytes = ViewWriter.writeHtmlNodes (writer, 0L) nodes
+        let struct (_, bytes) = ViewWriter.writeHtmlNodes struct (writer, 0L) nodes
         bytes
 
     /// <summary>Write HTML document view with &lt;!DOCTYPE html&gt;</summary>
     member _.htmlDocument (document: ReactElement) : int64 =
-        let _, bytes = ViewWriter.writeHtmlDocument (writer, 0L) document
+        let struct (_, bytes) = ViewWriter.writeHtmlDocument struct (writer, 0L) document
         bytes

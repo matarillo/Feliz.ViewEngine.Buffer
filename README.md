@@ -15,7 +15,7 @@ dotnet nuget add source https://nuget.pkg.github.com/matarillo/index.json -n ANY
 Then,
 
 ```sh
-dotnet add package Feliz.ViewEngine.Buffer --version 0.26.0
+dotnet add package Feliz.ViewEngine.Buffer --version 0.27.0
 ```
 
 ## Getting started
